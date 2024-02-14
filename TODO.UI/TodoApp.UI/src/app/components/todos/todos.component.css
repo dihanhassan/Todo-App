@@ -1,0 +1,33 @@
+*{
+   
+}
+
+.details-class{
+    padding-top: 100px;
+}
+
+td{
+    text-align: start;
+}
+.container{
+    margin-top: 50px !important;
+
+    margin-top: auto;
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+
+.headerContent{
+    height: 50px;
+   
+    margin-bottom: 5px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 50px;
+}
+.filter{
+    height: 30px;
+    
+}

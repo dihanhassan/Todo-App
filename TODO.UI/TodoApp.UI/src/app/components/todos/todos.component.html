@@ -1,0 +1,63 @@
+
+<section class="todoContainer">
+  <div class="container">
+  
+    <div class="headerContent" >
+      <div class="filter"  >
+        <mat-form-field appearance="outline" class="example-full-width">
+          <mat-label>Filter</mat-label>
+          <mat-select [(ngModel)]="filterOption">
+            <mat-option *ngFor="let option of priorityOptions" [value]="option.value">{{ option.viewValue }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+   </div>
+    <div class="row details-class">
+     
+      <table class="table">
+          <thead>
+              <tr >
+                <th scope="col"  style="color: rgb(211, 48, 116);"> CREATE TIME</th>
+                
+                  <th scope="col" style="color: rgb(211, 48, 116);">TITLE</th>
+                  
+                  <th scope="col"  style="color: rgb(211, 48, 116);">DESCRIPTION</th>
+                  
+                  <th scope="col" style="color: rgb(211, 48, 116);">PRIORITY</th>
+                  <th scope="col" style="color: rgb(211, 48, 116);">DUE DATE</th>
+                  <!-- <th scope="col" >Status</th> -->
+                  <th style="color: rgb(211, 48, 116);">  MAKE ACTION</th>
+                  <th scope="col" ></th>
+                </tr>
+          </thead>
+          <tbody>
+            
+              <tr *ngFor="let todo of todos">
+                <td style="font-size: 13px;">{{todo.createdOn | date: "MMM d, y, h:mm:ss a"}}</td>
+                
+                  <td>{{todo.title}}</td>
+                  
+                  <td>{{todo.descriptions}}</td>
+                 
+                
+                  <td>{{todo.prioritys}}</td>
+                  <td style="font-size: 13px;">{{todo.dueDate | date: "MMM d, y, h:mm:ss a"}}</td>
+                  <!-- <td>{{todo.isCompleted}}</td> -->
+                  <td class="actionButton">
+                    <div class="example-button-row">
+                     
+                      <button mat-button color="primary" (click)="editTodo(todo)" >Edit</button>
+                      <button mat-button color="accent" (click)="deleteTodo(todo.id)">Delete</button>
+                    
+                    
+                    </div>
+                  </td>
+                </tr>
+            
+          </tbody>
+        </table>
+  </div>
+</div>
+</section>
+
+<!-- (click)="editTodo(todo)" -->
