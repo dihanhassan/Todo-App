@@ -16,9 +16,9 @@ interface PriorityOption {
 export class TodosComponent implements OnInit{
 
   priorityOptions: PriorityOption[] = [
-    { value: 'PRIORITY', viewValue: 'PRIORITY' },
-    { value: 'DUEDATE', viewValue: 'DUE DATE' },
-    { value: 'CREATETIME', viewValue: 'CREATE TIME' },
+    { value: 'Prioritys', viewValue: 'PRIORITY' },
+    { value: 'DueDate', viewValue: 'DUE DATE' },
+    { value: 'CreatedOn', viewValue: 'CREATE TIME' },
   ];
 
   myObj!:EditTodoComponent
@@ -41,8 +41,15 @@ export class TodosComponent implements OnInit{
    
     ) {}
   ngOnInit(): void {
-    this.getAllTodos();
- 
+    //this.getAllTodos();
+   
+    if(this.filterOption !=null){
+       this.GetAllTodosUsingFilter()
+    }else{
+      this.getAllTodos();
+    }
+
+    
     
   }
 
@@ -86,6 +93,20 @@ export class TodosComponent implements OnInit{
       // Handle 
     });
     
+   }
+
+   GetAllTodosUsingFilter(){
+    
+    console.log(this.filterOption)
+    if(this.filterOption!=null){
+      this.todoService.getAllTodosUsingFilter(this.filterOption)
+      .subscribe({
+          next: (todo)=>{
+            this.todos=todo;
+          }
+      })
+    }
+   
    }
 
    

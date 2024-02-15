@@ -30,4 +30,9 @@ export class TodoService {
    
   }
 
+  getAllTodosUsingFilter(filterOption:string): Observable<Todo[]> {
+    return this.http.get<any>(this.baseApiUrl + '/api/Todo/GetAllTodosUsingFilter/'+filterOption)
+               .pipe(map((response: { listTodos: any; }) => response.listTodos));
+  }
+
 }

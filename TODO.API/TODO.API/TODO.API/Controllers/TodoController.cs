@@ -62,7 +62,17 @@ namespace TODO.API.Controllers
         }
 
 
+        [HttpGet]
+        [Route("GetAllTodosUsingFilter/{FilterOption}")]
 
+        public Response GetAllTodosUsingFilter(string FilterOption)
+        {
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("serverConnection").ToString());
+            Response response = new Response();
+            DAL dal = new DAL();
+            response = dal.GetAllTodosUsingFilter(connection,FilterOption);
+            return response;
+        }
 
     }
 }

@@ -9,8 +9,10 @@
           <mat-select [(ngModel)]="filterOption">
             <mat-option *ngFor="let option of priorityOptions" [value]="option.value">{{ option.viewValue }}</mat-option>
           </mat-select>
+          
         </mat-form-field>
       </div>
+      <button mat-raised-button color="primary" style="margin-top: 25px; margin-left: 10px;" (click)="GetAllTodosUsingFilter()">Apply</button>
    </div>
     <div class="row details-class">
      
